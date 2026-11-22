@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070a18">
+  <meta name="description" content="Solar System Explorer — discover planets, moons, and the wonders of our cosmic neighborhood.">
+  <title>Solar System Explorer — Journey Beyond</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="planets.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="starfield" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Solar System Explorer home">
+      <span class="brand-symbol"><span>✦</span></span>
+      <span class="brand-copy">SOLAR SYSTEM <b>EXPLORER</b></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="primaryNav" aria-label="Main navigation">
+      <a class="active" href="#home">Home</a>
+      <a href="#discover">Discover</a>
+      <a href="#planets">Planets</a>
+      <a href="#mission">About</a>
+      <a class="nav-cta" href="#planets">Start exploring <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero page-width" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> YOUR JOURNEY THROUGH SPACE STARTS HERE</div>
+        <h1>Explore beyond<br>what you <em>know.</em></h1>
+        <p class="hero-lead">A universe of discovery, right at your fingertips.</p>
+        <p class="hero-description">Travel through our cosmic neighborhood. Meet extraordinary planets, uncover fascinating facts, and experience the wonders of the Solar System in a whole new way.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#planets">Explore the universe <span>↗</span></a>
+          <a class="text-link" href="#discover"><span class="play-icon">▶</span> Discover our mission</a>
+        </div>
+        <div class="hero-metrics" aria-label="Solar System statistics">
+          <div><strong>08</strong><span>PLANETS</span></div>
+          <i></i>
+          <div><strong>01</strong><span>STAR</span></div>
+          <i></i>
+          <div><strong>290<span>+</span></strong><span>KNOWN MOONS*</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Artistic view of Saturn and the planets in space">
+        <div class="hero-art-glow"></div>
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+        <div class="planet planet-hero-saturn"><span class="saturn-ring"></span></div>
+        <div class="planet planet-hero-earth"></div>
+        <div class="planet planet-hero-mars"></div>
+        <div class="planet planet-hero-moon"></div>
+        <div class="planet planet-hero-blue"></div>
+        <div class="art-label label-saturn"><i></i> SATURN</div>
+        <div class="art-label label-earth"><i></i> EARTH</div>
+        <div class="art-coordinate">SOL / 001<br>LOCAL GROUP</div>
+        <div class="art-glass-card">
+          <span class="glass-card-icon">✧</span>
+          <div><small>THE COSMIC COLLECTION</small><strong>One system. Endless wonders.</strong></div>
+          <span class="glass-arrow">↗</span>
+        </div>
+      </div>
+      <div class="hero-bottom-note"><span>SCROLL TO EXPLORE</span><span class="scroll-line"></span><span>01 — 04</span></div>
+    </section>
+
+    <section class="intro-section page-width" id="discover">
+      <div class="intro-visual">
+        <div class="mini-orbit orbit-mini-one"></div><div class="mini-orbit orbit-mini-two"></div>
+        <div class="mini-sun"></div><div class="mini-earth"></div>
+        <span class="mini-caption">A TINY CORNER OF THE COSMOS</span>
+      </div>
+      <div class="intro-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> THE UNIVERSE, CLOSER</div>
+        <h2>Our neighborhood.<br><em>Infinite stories.</em></h2>
+        <p>The Solar System is more than the Sun and its planets. It is a dynamic family of worlds, rings, moons, asteroids, and comets — each with a story waiting to be discovered.</p>
+        <a class="underlined-link" href="#planets">Get to know the planets <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="planet-section page-width" id="planets">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="eyebrow-line"></span> THE PLANET COLLECTION</div><h2>Eight worlds.<br><em>Eight personalities.</em></h2></div>
+        <p>From scorched rocky landscapes to distant icy giants, every planet has something remarkable to reveal.</p>
+      </div>
+      <div class="planet-tabs" role="group" aria-label="Filter planets">
+        <button class="planet-tab active" data-filter="all" aria-pressed="true">All worlds <span>08</span></button>
+        <button class="planet-tab" data-filter="terrestrial" aria-pressed="false">Rocky planets</button>
+        <button class="planet-tab" data-filter="gas" aria-pressed="false">Gas giants</button>
+        <button class="planet-tab" data-filter="ice" aria-pressed="false">Ice giants</button>
+      </div>
+      <div class="planet-cards" id="planetCards"></div>
+      <div class="planet-detail" id="planetDetail" aria-live="polite">
+        <div class="detail-orb-wrap"><div class="detail-orb" id="detailOrb"></div><span class="detail-orb-caption">PLANETARY PROFILE</span></div>
+        <div class="detail-copy">
+          <div class="detail-kicker" id="detailType">TERRESTRIAL PLANET</div>
+          <h3 id="detailName">Earth</h3>
+          <p id="detailDescription">Our home world.</p>
+          <div class="detail-facts" id="detailFacts"></div>
+          <div class="detail-fun"><span>✦</span><p><b>Did you know?</b><br><span id="detailFact"></span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-section page-width" id="mission">
+      <div class="mission-card">
+        <div class="mission-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> MADE FOR CURIOUS MINDS</div>
+          <h2>Look up.<br><em>Wonder more.</em></h2>
+          <p>Space is vast, beautiful, and full of questions. Solar System Explorer makes the science of our celestial neighborhood feel clear, visual, and exciting — one discovery at a time.</p>
+          <a class="button button-outline" href="#home">Back to the beginning <span>↑</span></a>
+        </div>
+        <div class="mission-visual" aria-hidden="true">
+          <div class="mission-orbit mission-orbit-one"></div><div class="mission-orbit mission-orbit-two"></div>
+          <div class="mission-planet"></div><div class="mission-moon"></div>
+          <span class="mission-star star-one">✦</span><span class="mission-star star-two">✧</span>
+          <span class="mission-tag">DISCOVER / LEARN / EXPLORE</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer page-width">
+    <a class="brand" href="#home"><span class="brand-symbol"><span>✦</span></span><span class="brand-copy">SOLAR SYSTEM <b>EXPLORER</b></span></a>
+    <p>AN EDUCATIONAL JOURNEY THROUGH OUR COSMIC NEIGHBORHOOD</p>
+    <a href="#home" class="back-top">BACK TO TOP ↑</a>
+  </footer>
+  <div class="footnote page-width">*Moon counts can change as new natural satellites are confirmed. Scientific values shown in planet profiles are rounded educational reference values.</div>
+</body>
+</html>
